@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 2
+        </title>
+    </head>
+        <body>
+            <script>
+                'use strict'
+
+                // Дана последовательность натуральных чисел. Создать массив из четных чисел
+                // заданной последовательности. Если таких чисел нет, то вывести сообщение об
+                // этом. Числа вводятся через пробел в одном диалоговом окне prompt.
+
+                let str = prompt('Введите число', '1 4 7 9 16 35 24 18 11 44');
+                let strArr = str.split(' ');
+                
+                let result = strArr.filter(function(elem) {
+	            if (elem % 2 == 0) {
+		            return true;
+	                } else if (str % 2 != 0) {
+		            return false;  
+                };
+                    return false;
+                });
+
+                let a = [...result];
+
+                while (true) {
+                    if (a.length != 0) {
+                        console.log('Массив заполнен положительными числами', a);
+                    
+                    } if (a.length === 0) {
+                        alert('В массиве нет четных чисел', a);
+                        break;   
+                    } else {
+                        break;
+                    };
+                };                    
+   
+            </script>
+        </body>
+</html>

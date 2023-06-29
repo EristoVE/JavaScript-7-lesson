@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 4
+        </title>
+    </head>
+        <body>
+            <script>
+                'use strict'
+
+                //Задана числовая последовательность. Напечатать положительные числа в
+                //порядке убывания, используя метод сортировки бинарными включениями. Числа
+                //вводятся через пробел в одном окне prompt.
+
+                let str = prompt('Введите число', '1 4 7 -1 0 5 -2 3');
+                let strArr = str.split(' ');
+
+                let a, b;
+                let lt, rt;
+
+                for(let i = 1; i < strArr.length; i++) {
+                    a = strArr[i];
+                    lt = 0;
+                    rt = i - 1;
+                
+                    while (!(lt > rt)) {
+                        b = Math.floor((lt + rt) / 2);
+                        if (a < strArr[b]) rt = b - 1;
+                        else lt = b + 1;
+                    };
+
+                    for(let j = i - 1; j >= lt; j--) {
+                        strArr[j + 1] = strArr[j];
+                    };
+                    strArr[lt] = a;
+                };
+                
+                let result = strArr.filter(item => item > 0) .sort((b, a) => a - b);
+                
+                console.log(result);
+
+            </script>
+        </body>
+</html>

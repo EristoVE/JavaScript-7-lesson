@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 3
+        </title>
+    </head>
+        <body>
+            <script>
+                'use strict'
+
+                //В числовой последовательности определить количество и произведение
+                //элементов, расположенных между максимальным и минимальным. Максимальный
+                //и минимальный элементы в расчёт количества и произведения не включать.
+                //Подразумевается, что в последовательности все числа разные. Числа вводятся
+                //через пробел в одном окне prompt. Осуществить проверку того, что пользователь
+                //действительно ввел разные числа.
+
+                let str = prompt('Введите число', '1 4 7 -1 0 5 -2 3');
+                let strArr = str.split(' ');
+                
+                let minI = 0;
+                let maxI = minI;
+                let min = strArr[minI];
+                let max = strArr[maxI];
+                let product = 1;
+
+                // поиск минимального значения
+                for(let i = 1; i < strArr.length; i++) {
+                    
+                    if (strArr[i] < min) {
+                        strArr[i] = Number(strArr[i]);
+                        min = strArr[i];
+                        minI = i;
+                    }
+                // поиск максимального значения
+                    if (strArr[i] > max) {
+                        strArr[i] = Number(strArr[i]);
+                        max = strArr[i];
+                        maxI = i;
+                    }
+                }
+                
+                if (minI > maxI) {
+                    let temp = minI;
+                    minI = maxI;
+                    maxI = temp;
+                }
+
+                for(let i = minI + 1; i < maxI; i++) {
+                    product *= strArr[i];
+                }
+
+                if (Math.abs(maxI - minI) == 1) {
+                    console.log('Произведение =', 0);
+                    console.log('Количество элементов между МIN и МАХ =', 0);
+                } else {
+                    console.log('Произведение =', product);
+                    console.log('Количество элементов между МIN и МАХ =', Math.abs(maxI - minI) - 1);
+                };
+
+            </script>
+        </body>
+</html>

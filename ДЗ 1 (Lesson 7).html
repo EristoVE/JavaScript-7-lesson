@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Case 1
+        </title>
+    </head>
+        <body>
+            <script>
+                'use strict'
+
+                // В целочисленной последовательности есть нулевые элементы. Создать массив из
+                // номеров этих элементов. Числа вводятся через пробел в одном диалоговом окне
+                // prompt.
+
+                var index = [];
+                let str = prompt('Введите число', '1 0 -7 9 0 35 0 -18 11 0');
+                let strArr = str.split(' ');
+
+                var element = '0';
+                var idx = strArr.indexOf(element);
+                while (idx != -1) {
+                    index.push(idx);
+                    idx = strArr.indexOf(element, idx + 1);
+                };
+                console.log(index);
+                
+            </script>
+        </body>
+</html>
